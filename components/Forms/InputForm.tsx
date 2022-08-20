@@ -34,7 +34,6 @@ export const InputForm = (props: {
   const { callback } = props;
 
   const onSubmit = handleSubmit((data) => {
-    console.log("click");
     if (callback) {
       callback();
     }

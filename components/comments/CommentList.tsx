@@ -1,3 +1,4 @@
+import AddComment from "./AddComment";
 import Comment from "./Comment";
 const CommentList = (props: any) => {
   const { comments } = props;
@@ -11,6 +12,7 @@ const CommentList = (props: any) => {
         {comments.map((comment: any) => {
           return <Comment key={comment.id} comment={comment} />;
         })}
+        <AddComment />
       </>
     );
   }
