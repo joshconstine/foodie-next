@@ -3,29 +3,24 @@ import type { NextPage } from "next";
 import { useState, useEffect } from "react";
 import { useQuery } from "react-query";
 import { supabase } from "../utils/supabaseClient";
+import CommentList from "@/components/comments/CommentList";
 
 export default function Home(props: any) {
-  console.log(props);
-
   const { comments } = props;
-  
-  if (comments === null) {
-    return <></>;
-  } else {
-    return (
-      <div>
-        {comments.map((comment: any) => {
-          return <div key={comment.id}>{comment.body}</div>;
-        })}
-      </div>
-    );
-  }
+  return (
+    <div>
+      <CommentList comments={comments} />
+    </div>
+  );
 }
 
 export async function getStaticProps() {
-  let { data, error } = await supabase.from("comment").select("*");
+  const url = "http://localhost:3000/api/comment";
+  let response = await fetch(url);
+  let data = await response.json();
 
   return {
+    // props: { comments: response },
     props: { comments: data },
   };
 }
