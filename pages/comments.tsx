@@ -3,7 +3,6 @@ import { Comment } from "../types/comment";
 
 const Home = (props: { comments: Comment[] }) => {
   const { comments } = props;
-  console.log(props);
   return (
     <div>
       <CommentList comments={comments} />
