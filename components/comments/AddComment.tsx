@@ -6,7 +6,7 @@ const AddComment = () => {
   const handleChange = (event: any) => {
     setComment({ comment: event.target.value });
   };
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: any) => {
     e.preventDefault();
     const url = "http://localhost:3000/api/comment";
     let response = await fetch(url, {
